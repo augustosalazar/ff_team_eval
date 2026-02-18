@@ -361,6 +361,15 @@ class _RatePageWidgetState extends State<RatePageWidget> {
                             safeSetState(() {});
 
                             safeSetState(() {});
+
+                            for (var student in _model.myGroup!.students) {
+                              if (student.authUserId == currentUserUid) {
+                                continue;
+                              }
+                              student.overAllRating = 6;
+                              student.communicationRating = 6;
+                              student.collaborationRating = 6;
+                            }
                           },
                           text: 'Submit Ratings',
                           options: FFButtonOptions(
